@@ -25,7 +25,7 @@ class Signup extends Component {
     handleSubmit = (e) =>{
         e.preventDefault();
         console.log(`this.state`, this.state)
-        fetch('http://localhost:5000/api/v1/user/signup', {
+        fetch('https://doggo-be.herokuapp.com/api/v1/user/signup', {
             method: 'post',
             headers: {
                 'Accept': 'application/json',
