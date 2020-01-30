@@ -22,7 +22,7 @@ class Login extends Component {
     handleSubmit = (e) =>{
         e.preventDefault();
         
-        fetch('https://doggo-be.herokuapp.com/api/v1/user/login', {
+        fetch('http://doggo-be.herokuapp.com/api/v1/user/login', {
             method: 'post',
             headers: {
                 'Accept': 'application/json',
