@@ -38,20 +38,28 @@ class AllBreeds extends Component {
     }
 
     handleBadgeClick = breed => this.getBreedDetails(breed);
+    handleLogout = () => {
+        this.cookies.remove("userLoggedIn");
+        window.location.pathname = "/login";
+    }
 
     render() {
-        console.log(`props`, this.props.match.params.breedName)
         return (
-            <div className="breed-container">
-                <div className="badge-container">
-                    {this.state.allBreeds.map(breed=>(
-                        <div className={this.state.breedName == breed? "badge badge-primary m-2 p-2 active": "badge badge-primary m-2 p-2"} onClick={()=> this.handleBadgeClick(breed)}><span>{breed}</span>   </div>
-                    ))}
+            <div>
+                <div className="breed-container">
+                    <div className="badge-container">
+                        {this.state.allBreeds.map(breed=>(
+                            <div className={this.state.breedName == breed? "badge badge-primary m-2 p-2 active": "badge badge-primary m-2 p-2"} onClick={()=> this.handleBadgeClick(breed)}><span>{breed}</span>   </div>
+                        ))}
+                    </div>
+                    {<div className="breed-details-containar">
+                            <p>{this.state.breedName || "Select Category"}</p>
+                            <img src={this.state.breedData.message}/>
+                    </div>}
                 </div>
-                {<div className="breed-details-containar">
-                        <p>{this.state.breedName || "Select Category"}</p>
-                        <img src={this.state.breedData.message}/>
-                </div>}
+                <div className="logout-container">
+                    <button className="btn btn-danger" onClick={(e)=>this.handleLogout(e)}>Logout</button>
+                </div>
             </div>
         );
     }

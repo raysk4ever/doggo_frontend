@@ -44,3 +44,6 @@
 .breed-details-containar>img:hover{
     opacity: .8;
 }
+.logout-container{
+    text-align: center;
+}

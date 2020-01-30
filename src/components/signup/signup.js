@@ -17,7 +17,7 @@ class Signup extends Component {
 
     handleChange = e =>{
         const input = e.currentTarget;
-        if(input.name == "email") this.setState({email: input.value});
+        if(input.name == "email") this.setState({email: input.value.toLowerCase()});
         else if(input.name == "name") this.setState({name: input.value});
         else this.setState({password: input.value});
     }
@@ -48,6 +48,8 @@ class Signup extends Component {
     render() { 
         return (
             <div className="container">
+                <h1>Signup</h1>
+                <hr/>
                 <div className="form-container">
                     <Form>
                         <Form.Group controlId="formBasicEmail">
@@ -67,6 +69,9 @@ class Signup extends Component {
                         <Button variant="success" onClick={(e) => this.handleSubmit(e) } type="submit">
                             Register
                         </Button>
+                        <a className="btn btn-secondary m-2" href="/login">
+                            Already have an account, Login
+                        </a>
                     </Form>
                 </div>
             </div>
